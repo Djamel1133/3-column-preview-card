@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
+
+:root {
+/* Primary */
+--Bright : hsl(31, 77%, 52%) ;
+--Dark :  hsl(184, 100%, 22%) ;
+--Very-dark : hsl(179, 100%, 13%) ;
+
+/* Neutral */
+--Transparent : hsla(0, 0%, 100%, 0.75) ; /* (paragraphs) */
+--Very-light :  hsl(0, 0%, 95%) ; /* (background, headings, buttons): */
+}
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-family: "Lexend Deca", sans-serif;
+  font-size: clamp(0.6rem, calc(0.6rem + 0.4vw), 1.1rem);
+}
+
+main{
+    background-color: var(--Very-light) ; 
+    /*1rem; /* don't forget font-size: 16px default*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center; 
+    margin: auto;
+}
+
+h1{
+  font-family:  "Big Shoulders Display", sans-serif;
+  font-size: 2.1rem;
+  /*letter-spacing: 1em;  /* use em to scale spacing with font size */
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--Transparent);
+}
+
+.container {
+    margin: auto;
+    width: 74%; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    color:var(--Very-light);
+    line-height: 1.5 /* keep it unitless or using % */
+  }
+
+ .box {
+    height: 32rem;
+    padding: 3rem 4.2rem;
+    position: relative;
+    opacity: 0 ;/* at the start the 3 boxes are not visible   */
+    }
+
+  .one{
+    background-color: var(--Bright) ;
+  }
+
+  .two{
+    background-color: var(--Dark) ;
+  }
+ 
+  .three{
+    background-color: var(--Very-dark) ;
+  }
+
+.attribution {
+  width: 8rem;
+  border: 2px solid var(--Very-light) ;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 2.5; /* keep it unitless or using % */
+  width: 44%;
+  margin-top: auto;
+  position: absolute; 
+  bottom : 10% ; /*  to put the button "learn more" at the bottom  */
+  left : 28% ;  /* 100 - 44 = 56 then 56/2 to keep the buttom centered */
+  background-color: var(--Very-light);
+ }
+
+ a{
+  text-decoration: none;
+ }
+
+ .attribution.one a{
+    color: var(--Bright) ;
+  }
+
+  .attribution.two a{
+     color:var(--Dark) ;
+  }
+ 
+  .attribution.three a{
+     color: var(--Very-dark) ;
+  }
+
+  .attribution:hover, .attribution:hover a {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--Very-light);
+  }
+
+  /* ----- Responsive adjustement------ */
+  /* Media query for screens less than 798px */
+ @media (max-width: 798px) {
+  .container {
+    grid-template-columns: 1fr; /* Change to 1 column */
+}
+html{
+  font-size: 16px;
+}
+}
+
+/* Animation*/
+/* Animation for the columns */
+.animated {
+  animation: fadeInMove 1.5s ease-in-out forwards;
+}
+
+/* Keyframes to define the animation steps */
+@keyframes fadeInMove {
+  /* from not visible  */
+  0% {
+      opacity: 0;
+      transform: translateY(20px); /* Start slightly below */
+  }
+  /* to visible */
+  100% {
+      opacity: 1;  
+      transform: translateY(0); /* End at original position */
+  }
+}
+
+
+
